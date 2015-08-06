@@ -1,5 +1,6 @@
 import game_logic
 import graphics
+import pygame
 import tempdata
 
 def run():
