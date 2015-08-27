@@ -4,7 +4,6 @@ import settings
 
 def init_graphics(data):
     pygame.init()
-    pygame.font.init()
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
     screen = reset_screen(screen, data)
     return screen
@@ -16,7 +15,8 @@ def graphics_cycle(screen, data):
 def reset_screen(screen, data):
     screen = draw_world(screen, data)
     screen = draw_cities(screen, data)
-    return screen
+    screen = draw_world_info(screen, data)
+    return screen, data
 
 def draw_world(screen, data):
     world = data['world']
@@ -48,7 +48,21 @@ def draw_city(screen, city):
     return screen
 
 def draw_city_text(screen, city):
-    font = pygame.font.Font(None, 20)
+    font = settings.standard_font
     text = font.render(city.name, True, (200, 200, 200))
     screen.blit(text, (city.x * settings.tile_width-15, city.y*settings.tile_width+10))
+    return screen
+
+def draw_text(screen, text, color, x, y):
+    font = settings.standard_font
+    text = font.render(text, True, color)
+    screen.blit(text, (x, y))
+    return screen
+
+def draw_world_info(screen, data):
+    mapy = settings.worldy * settings.tile_width
+    height = settings.screen_height - mapy
+    color = (220, 220, 220)
+    pygame.draw.rect(screen, color, pygame.Rect(0, mapy, settings.screen_width, height))
+    screen = draw_text(screen, "Turn: "+str(data['turn']), (0,0,0), 100, mapy + 50)
     return screen

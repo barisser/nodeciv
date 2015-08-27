@@ -12,6 +12,7 @@ def init_cities(world):
 def init_data():
     data = {}
     data['resources'] = resources.init_resources()
+    data['turn'] = 1
     protoworld = world.World(data)
     protoworld = init_cities(protoworld)
 

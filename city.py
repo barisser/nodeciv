@@ -21,6 +21,7 @@ class City:
             previous_supply = self.commodity_stocks[i]
             self.commodity_stocks[i] += production
             self.prices[i] = economics.find_price(previous_supply, self.commodity_stocks[i], self.prices[i], resources.resources[i].base_demand, resources.resources[i].price_elasticity)
+        return data
 
     def consume(self, data):
         for i in range(0, len(resources.resources)):
@@ -34,7 +35,9 @@ class City:
                     self.population = self.population * (1.0 + settings.growth_rate)
 
             self.commodity_stocks[i] = self.commodity_stocks[i] - to_consume
+        return data
 
     def cycle(self, data):
-        self.produce(data)
-        self.consume(data)
+        data = self.produce(data)
+        data = self.consume(data)
+        return data
