@@ -1,10 +1,12 @@
 import pygame
 from pygame import font
 
-screen_width = 1000
-screen_height = 1000
-worldx = 100
-worldy = 80
+screen_width = 800
+screen_height = 700
+info_height = 100
+info_width = 800
+worldx = 80
+worldy = 60
 tile_width = 10
 average_pop_per_tile = 10
 
