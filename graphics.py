@@ -3,10 +3,12 @@ import pygame
 from pygame import font
 import settings
 
+
 def empty_surface(x, y):
     image = pygame.Surface([x, y], pygame.SRCALPHA, 32)
     image = image.convert_alpha()
     return image
+
 
 def init_graphics(data):
     pygame.init()
@@ -17,17 +19,20 @@ def init_graphics(data):
     screens, data = reset_screens(screens, data)
     return screens
 
+
 def graphics_cycle(screens, data):
     screens['main'].blit(screens['world'], (0, 0))
     screens['main'].blit(screens['info'], (0, 0))
     pygame.display.flip()
     return screens
 
+
 def reset_screens(screens, data):
     screens['world'] = draw_world(screens['world'], data, images.images)
     screens['world'] = draw_cities(screens['world'], data, images.images)
     screens['info'] = draw_world_info(screens['info'], data)
     return screens, data
+
 
 def draw_world(surface, data, images):
     world = data['world']
@@ -37,6 +42,7 @@ def draw_world(surface, data, images):
             screens = draw_tile(tile, surface, images)
     return surface
 
+
 def draw_tile(tile, surface, images):
     mapx = settings.tile_width * tile.x
     mapy = settings.tile_width * tile.y
@@ -45,12 +51,14 @@ def draw_tile(tile, surface, images):
     surface.blit(image, rect)
     return surface
 
+
 def draw_cities(surface, data, images):
     cities = data['world'].cities
     for city in cities:
         cities_screen = draw_city(surface, city, images)
         screen = draw_city_text(surface, city)
     return surface
+
 
 def draw_city(surface, city, images):
     mapx = settings.tile_width * city.x
@@ -60,17 +68,20 @@ def draw_city(surface, city, images):
     surface.blit(image, rect)
     return surface
 
+
 def draw_city_text(surface, city):
     font = settings.standard_font
     text = font.render(city.name, True, (200, 200, 200))
     surface.blit(text, (city.x * settings.tile_width-15, city.y*settings.tile_width+10))
     return surface
 
+
 def draw_text(surface, text, color, x, y):
     font = settings.standard_font
     text = font.render(text, True, color)
     surface.blit(text, (x, y))
     return surface
+
 
 def draw_world_info(screens, data):
     mapy = settings.info_width
