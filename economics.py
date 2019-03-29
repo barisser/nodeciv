@@ -1,5 +1,6 @@
 import math
 
+
 def price_change(current_supply, base_demand, price_elasticity, change_in_supply, current_price):
     if current_supply == 0:
         current_supply = 1
@@ -19,8 +20,10 @@ def equilibrium_price(supply, base_demand, price_elasticity):
         p = 0
     return p
 
+
 def find_price(previous_supply, new_supply, previous_price, base_demand, price_elasticity):
     return equilibrium_price(new_supply, base_demand, price_elasticity)
+
 
 def how_much_to_consume(total_money, population, resource, supply):
     to_consume = 1.0
