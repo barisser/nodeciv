@@ -2,12 +2,14 @@ import city
 import resources
 import world
 
+
 def init_cities(world):
     London = city.City('London', 30, 30, 100)
     Paris = city.City('Paris', 60, 20, 50)
     world.cities.append(London)
     world.cities.append(Paris)
     return world
+
 
 def init_data():
     data = {}
