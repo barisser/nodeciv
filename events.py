@@ -1,6 +1,7 @@
 import game_logic
 import pygame
 
+
 def handle_events(screens, data):
     r = True
     for event in pygame.event.get():
