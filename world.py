@@ -1,6 +1,7 @@
 import settings
 import tile
 
+
 class World:
     def __init__(self, data):
         self.map = []
