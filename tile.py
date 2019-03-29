@@ -4,6 +4,7 @@ import random
 import resources
 import settings
 
+
 class Tile:
     def __init__(self, x, y, data):
         self.productivity = []
