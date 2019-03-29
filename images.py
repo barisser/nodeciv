@@ -1,5 +1,6 @@
 import pygame
 
+
 def load_images():
     print "LOADING IMAGES"
     images = {}
