@@ -5,6 +5,7 @@ class Resource:
         self.base_demand = base_demand
         self.price_elasticity = price_elasticity
 
+
 def init_resources():
     resources = []
     food = Resource('food', 10, 0.01, 0)
