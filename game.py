@@ -3,6 +3,7 @@ import graphics
 import pygame
 import tempdata
 
+
 def run():
     data = tempdata.init_data()
     screens = graphics.init_graphics(data)
