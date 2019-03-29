@@ -77,5 +77,5 @@ def draw_world_info(screens, data):
     height = settings.info_height
     color = (220, 220, 220)
     pygame.draw.rect(screens, color, pygame.Rect(0, mapy, settings.info_width, height))
-    screens = draw_text(screens, "Turn: "+str(data['turn']), (0,0,0), 100, mapy + 50)
+    screens = draw_text(screens, "Turn: "+str(data['turn']), (0, 0, 0), 100, mapy + 50)
     return screens
