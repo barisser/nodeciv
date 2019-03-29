@@ -2,6 +2,7 @@ import economics
 import resources
 import settings
 
+
 class City:
     def __init__(self, name, x, y, population):
         self.x = x
